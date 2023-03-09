@@ -14,7 +14,7 @@ use of the library: <https://github.com/jasvrcek/ICS>
 Add bundle to your project:
 
 ```bash
-composer require welp/ical-bundle
+composer require FredNandrin/ical-bundle
 ```
 
 Add `Welp\IcalBundle\WelpIcalBundle` to your `AppKernel.php`:

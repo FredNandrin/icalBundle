@@ -1,9 +1,9 @@
 {
-    "name": "welp/ical-bundle",
+    "name": "frednandrin/ical-bundle",
     "description": "Symfony Bundle to manage .ics iCal file (creating and eventually reading)",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "type": "symfony-bundle",
-    "homepage": "https://github.com/welpdev/icalBundle",
+    "homepage": "https://github.com/FredNandrin/icalBundle",
     "license": "MIT",
     "keywords": [
         "Symfony",
@@ -17,6 +17,10 @@
         {
             "name": "Titouan BENOIT",
             "email": "titouan@welp.today"
+        },
+        {
+            "name": "Fred NANDRIN",
+            "email": "fred@nanit.be"
         }
     ],
     "autoload": {
