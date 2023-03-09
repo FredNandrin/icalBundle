@@ -18,8 +18,6 @@ class CalendarAttachment extends \Swift_Attachment
 {
     /**
      * Calendar attachment constructor
-     *
-     * @param Calendar $calendar
      */
     public function __construct(Calendar $calendar)
     {

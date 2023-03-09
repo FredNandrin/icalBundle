@@ -32,7 +32,7 @@ class CalendarResponse extends Response
      * @param int      $status   Response status
      * @param array    $headers  Response headers
      */
-    public function __construct(Calendar $calendar, $status = 200, $headers = array())
+    public function __construct(Calendar $calendar, $status = 200, $headers = [])
     {
         $this->calendar = $calendar;
 
@@ -48,9 +48,9 @@ class CalendarResponse extends Response
      *
      * @return array
      */
-    protected function getDefaultHeaders()
+    final public function getDefaultHeaders(): array
     {
-        $headers = array();
+        $headers = [];
 
         $mimeType = $this->calendar->getContentType();
         $headers['Content-Type'] = sprintf('%s; charset=utf-8', $mimeType);

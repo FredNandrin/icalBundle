@@ -10,7 +10,7 @@ use Welp\IcalBundle\Component\Calendar;
  * @package Welp\IcalBundle\Tests
  * @author  Titouan BENOIT <titouan@welp.today>
  */
-abstract class CalendarTestCase extends \PHPUnit_Framework_TestCase
+abstract class CalendarTestCase extends \PHPUnit\Framework\TestCase
 {
 
     /**
@@ -18,9 +18,9 @@ abstract class CalendarTestCase extends \PHPUnit_Framework_TestCase
      *
      * @param Calendar $calendar Actual calendar
      */
-    protected function assertCalendar($calendar)
+    final public function assertCalendar(Calendar $calendar):void
     {
-        $this->assertInstanceOf('Welp\IcalBundle\Component\Calendar', $calendar);
-        $this->assertInstanceOf('Jsvrcek\ICS\Model\Calendar', $calendar);
+        $this->assertInstanceOf(\Welp\IcalBundle\Component\Calendar::class, $calendar);
+        $this->assertInstanceOf(\Jsvrcek\ICS\Model\Calendar::class, $calendar);
     }
 }

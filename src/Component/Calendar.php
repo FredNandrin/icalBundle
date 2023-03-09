@@ -19,13 +19,14 @@ class Calendar extends vCalendar
     /**
      * String $filename
      */
-    private $filename = 'calendar.ics';
+    private string $filename = 'calendar.ics';
 
     /**
      * Calendar contentType
      * @return String calendar contentType
      */
-    public function getContentType(){
+    final public function getContentType(): string
+    {
         return 'text/calendar';
     }
 
@@ -34,7 +35,8 @@ class Calendar extends vCalendar
      * @param Boolean $doImmediateOutput = false
      * @return String .ics formatted text
      */
-    public function export($doImmediateOutput = false){
+    final public function export(bool $doImmediateOutput = false): string
+    {
         //setup exporter
         $calendarExport = new CalendarExport(new CalendarStream, new Formatter());
         $calendarExport->addCalendar($this);
@@ -52,7 +54,7 @@ class Calendar extends vCalendar
      * @param String $filename
      * @return Calendar
      */
-    public function setFilename($filename)
+    final public function setFilename(string $filename): self
     {
         $this->filename = $filename;
 
@@ -64,7 +66,7 @@ class Calendar extends vCalendar
      *
      * @return String
      */
-    public function getFilename()
+    final public function getFilename(): string
     {
         return $this->filename;
     }

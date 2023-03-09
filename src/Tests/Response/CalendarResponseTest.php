@@ -18,18 +18,21 @@ class CalendarResponseTest extends CalendarTestCase
      * Testing calendar response
      *
      */
-    public function testCalendarResponse()
+    final public function testCalendarResponse(): void
     {
         $calendar = new Calendar();
-        $response = new CalendarResponse($calendar, 200);
+        $response = new CalendarResponse($calendar, \Symfony\Component\HttpFoundation\Response::HTTP_OK);
 
-        $this->assertInstanceOf('Symfony\Component\HttpFoundation\Response', $response);
-        $this->assertInstanceOf('Welp\IcalBundle\Response\CalendarResponse', $response);
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertInstanceOf(\Symfony\Component\HttpFoundation\Response::class, $response);
+        $this->assertInstanceOf(\Welp\IcalBundle\Response\CalendarResponse::class, $response);
+        $this->assertEquals(\Symfony\Component\HttpFoundation\Response::HTTP_OK, $response->getStatusCode());
 
         $this->assertEquals($calendar->export(), $response->getContent());
 
-        $this->assertContains($calendar->getContentType()."; charset=utf-8", $response->headers->get('Content-Type'));
-        $this->assertContains($calendar->getFilename(), $response->headers->get('Content-Disposition'));
+        $this->assertStringContainsString(
+            $calendar->getContentType()."; charset=utf-8",
+            $response->headers->get('Content-Type')
+        );
+        $this->assertStringContainsString($calendar->getFilename(), $response->headers->get('Content-Disposition'));
     }
 }
