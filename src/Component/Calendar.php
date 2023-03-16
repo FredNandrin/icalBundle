@@ -50,9 +50,6 @@ class Calendar extends vCalendar
 
     /**
      * Set filename
-     *
-     * @param String $filename
-     * @return Calendar
      */
     final public function setFilename(string $filename): self
     {
@@ -63,8 +60,6 @@ class Calendar extends vCalendar
 
     /**
      * Get filename
-     *
-     * @return String
      */
     final public function getFilename(): string
     {

@@ -45,8 +45,6 @@ class CalendarResponse extends Response
 
     /**
      * Get default response headers for a calendar
-     *
-     * @return array
      */
     final public function getDefaultHeaders(): array
     {
