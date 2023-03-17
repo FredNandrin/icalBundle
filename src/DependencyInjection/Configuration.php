@@ -15,7 +15,7 @@ class Configuration implements ConfigurationInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigTreeBuilder()
+    final public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('welp_ical');
         if (\method_exists($treeBuilder, 'getRootNode')) {
@@ -31,7 +31,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode->children()
             ->scalarNode('default_prodid')->defaultValue('-//WelpIcalBundle//Calendar App//FR')->end()
-            ->scalarNode('default_timezone')->defaultNull()->end();
+            ?->scalarNode('default_timezone')->defaultNull()->end();
 
         return $treeBuilder;
     }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Welp\IcalBundle\Tests\Component;
 
 use Welp\IcalBundle\Component\Calendar;
@@ -12,12 +13,11 @@ use Welp\IcalBundle\Tests\CalendarTestCase;
  */
 class CalendarTest extends CalendarTestCase
 {
-
     /**
      * Testing initiating calendar
      *
      */
-    public function testInit()
+    final public function testInit(): void
     {
         $calendar = new Calendar();
         $this->assertCalendar($calendar);
@@ -27,7 +27,7 @@ class CalendarTest extends CalendarTestCase
      * Testing filename calendar
      *
      */
-    public function testSetGetFilename()
+    final public function testSetGetFilename(): void
     {
         $calendar = new Calendar();
         $this->assertEquals('calendar.ics', $calendar->getFilename());
@@ -40,7 +40,7 @@ class CalendarTest extends CalendarTestCase
      * Testing contentType calendar
      *
      */
-    public function testGetContentType()
+    final public function testGetContentType(): void
     {
         $calendar = new Calendar();
         $this->assertEquals('text/calendar', $calendar->getContentType());
@@ -50,10 +50,9 @@ class CalendarTest extends CalendarTestCase
      * Testing export calendar
      *
      */
-    public function testExport()
+    final public function testExport(): void
     {
         $calendar = new Calendar();
         $this->assertStringStartsWith('BEGIN:VCALENDAR', $calendar->export());
     }
-
 }

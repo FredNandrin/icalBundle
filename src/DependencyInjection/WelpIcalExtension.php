@@ -18,7 +18,7 @@ class WelpIcalExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    final public function load(array $configs, ContainerBuilder $container):void
+    final public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
@@ -36,7 +36,7 @@ class WelpIcalExtension extends Extension
      *
      * @return string
      */
-    finaL public function getAlias(): string
+    final public function getAlias(): string
     {
         return 'welp_ical';
     }

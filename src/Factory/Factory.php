@@ -20,6 +20,7 @@ use Jsvrcek\ICS\Model\Recurrence\RecurrenceRule;
 use Jsvrcek\ICS\Utility\Formatter;
 use Jsvrcek\ICS\CalendarStream;
 use Jsvrcek\ICS\CalendarExport;
+
 /**
  * Calendar Factory
  *
@@ -28,22 +29,13 @@ use Jsvrcek\ICS\CalendarExport;
  */
 class Factory
 {
-    /**
-     * @var string
-     */
-    protected $timezone;
-
-    /**
-     * @var string
-     */
-    protected $prodid;
+    private ?\DateTimeZone $timezone = null;
+    private ?string $prodid = null;
 
     /**
      * Create new calendar
-     *
-     * @return Calendar
      */
-    public function createCalendar()
+    final public function createCalendar(): Calendar
     {
         $calendar = new Calendar();
 
@@ -60,118 +52,80 @@ class Factory
 
     /**
      * Create new CalendarEvent
-     *
-     * @return CalendarEvent
      */
-    public function createCalendarEvent()
+    final public function createCalendarEvent(): CalendarEvent
     {
-        $calendarEvent = new CalendarEvent();
-
-        return $calendarEvent;
+        return new CalendarEvent();
     }
 
     /**
      * Create new CalendarAlarm
-     *
-     * @return CalendarAlarm
      */
-    public function createCalendarAlarm()
+    final public function createCalendarAlarm(): CalendarAlarm
     {
-        $calendarAlarm = new CalendarAlarm();
-
-        return $calendarAlarm;
+        return new CalendarAlarm();
     }
 
     /**
      * Create new CalendarFreeBusy
-     *
-     * @return CalendarFreeBusy
      */
-    public function createCalendarFreeBusy()
+    final public function createCalendarFreeBusy(): CalendarFreeBusy
     {
-        $calendarFreeBusy = new CalendarFreeBusy();
-
-        return $calendarFreeBusy;
+        return new CalendarFreeBusy();
     }
 
     /**
      * Create new CalendarTodo
-     *
-     * @return CalendarTodo
      */
-    public function createCalendarTodo()
+    final public function createCalendarTodo(): CalendarTodo
     {
-        $calendarTodo = new CalendarTodo();
-
-        return $calendarTodo;
+        return new CalendarTodo();
     }
 
     /**
      * Create new Attendee
-     *
-     * @return Attendee
      */
-    public function createAttendee()
+    final public function createAttendee(): Attendee
     {
-        $attendee = new Attendee(new Formatter());
-
-        return $attendee;
+        return new Attendee(new Formatter());
     }
 
     /**
      * Create new Organizer
-     *
-     * @return Organizer
      */
-    public function createOrganizer()
+    final public function createOrganizer(): Organizer
     {
-        $organizer = new Organizer(new Formatter());
-
-        return $organizer;
+        return new Organizer(new Formatter());
     }
 
     /**
      * Create new Geo
-     *
-     * @return Geo
      */
-    public function createGeo()
+    final public function createGeo(): Geo
     {
-        $geo = new Geo();
-
-        return $geo;
+        return new Geo();
     }
 
     /**
      * Create new Location
-     *
-     * @return Location
      */
-    public function createLocation()
+    final public function createLocation(): Location
     {
-        $location = new Location();
-
-        return $location;
+        return new Location();
     }
 
     /**
      * Create new RecurrenceRule
-     *
-     * @return RecurrenceRule
      */
-    public function createRecurrenceRule()
+    final public function createRecurrenceRule(): RecurrenceRule
     {
-        $recurrenceRule = new RecurrenceRule(new Formatter());
-
-        return $recurrenceRule;
+        return new RecurrenceRule(new Formatter());
     }
 
     /**
      * Set default timezone for calendars
-     *
-     * @param string $timezone
      */
-    public function setTimezone($timezone)
+    final public function setTimezone(string $timezone): void
     {
         $this->timezone = new \DateTimeZone($timezone);
     }
@@ -181,7 +135,7 @@ class Factory
      *
      * @param string $prodid
      */
-    public function setProdid($prodid)
+    final public function setProdid(?string $prodid): void
     {
         $this->prodid = $prodid;
     }

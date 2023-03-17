@@ -23,7 +23,6 @@ use Welp\IcalBundle\Tests\CalendarTestCase;
  */
 class FactoryTest extends CalendarTestCase
 {
-
     /**
      * @var Factory
      */
@@ -159,7 +158,5 @@ class FactoryTest extends CalendarTestCase
         $this->assertCalendar($calendar);
         $this->assertInstanceOf('\DateTimeZone', $calendar->getTimezone());
         $this->assertEquals('Europe/Paris', $calendar->getTimezone()->getName());
-
     }
-
 }

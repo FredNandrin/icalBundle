@@ -16,6 +16,7 @@ use Jsvrcek\ICS\CalendarExport;
  */
 class Calendar extends vCalendar
 {
+    final public const MIME_TYPE = 'text/calendar';
     /**
      * String $filename
      */
@@ -27,7 +28,7 @@ class Calendar extends vCalendar
      */
     final public function getContentType(): string
     {
-        return 'text/calendar';
+        return self::MIME_TYPE;
     }
 
     /**
@@ -38,7 +39,7 @@ class Calendar extends vCalendar
     final public function export(bool $doImmediateOutput = false): string
     {
         //setup exporter
-        $calendarExport = new CalendarExport(new CalendarStream, new Formatter());
+        $calendarExport = new CalendarExport(new CalendarStream(), new Formatter());
         $calendarExport->addCalendar($this);
 
         //set exporter to send items directly to output instead of storing in memory
@@ -65,5 +66,4 @@ class Calendar extends vCalendar
     {
         return $this->filename;
     }
-
 }
